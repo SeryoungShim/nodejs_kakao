@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            display: flex;
+        }
+        .image img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image"><img src="https://pbs.twimg.com/profile_images/549171896013438979/rqtU6Cvn_400x400.png"></div>
+        <div class="describe">
+            <p>이름: <%= user_info.nickname %></p>
+            <p>성별: <%= user_info.gender %></p>
+            <p>나이: <%= user_info.age %></p>
+        </div>
+    </div>
+
+    <script>
+        var image = document.querySelector('.image img');
+        // var data = {{ user_info|tojson }};
+        console.log("<%=user_info%>");
+        // if("<%=user_info%>"){
+        //     image.src = "<%=user_info.image%>"
+        // }
+        <% if("image" in user_info){%>
+            image.src = "<%=user_info.image%>"
+        <%}%>
+    </script>
+</body>
+</html>
